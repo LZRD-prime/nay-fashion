@@ -1,0 +1,24 @@
+# Fichiers et dossiers Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Fichiers d'environnement
+.env
+
+# Bases de données SQLite
+*.db
+
+# Dossiers de logs
+logs/
+
+# Autres fichiers inutiles
+*.log
+.DS_Store
+*.swp

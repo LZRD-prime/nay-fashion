@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Panier | Nay Fashion{% endblock %}
+
+{% block content %}
+<section class="panier">
+  <h1>Mon panier</h1>
+
+  {% if produits %}
+    <div class="panier-table">
+      {% for produit in produits %}
+        <div class="ligne-produit">
+          <div class="col-nom">{{ produit.nom }}</div>
+          <div class="col-prix">{{ produit.prix }} €</div>
+          <div class="col-quantite">x {{ produit.quantite }}</div>
+          <div class="col-sous-total">{{ produit.sous_total }} €</div>
+          <div class="col-action">
+            <a href="{{ url_for('panier.supprimer_du_panier', produit_id=produit.id) }}" class="btn btn-danger">Supprimer</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="total">
+      <p>Total : <strong>{{ total }} €</strong></p>
+    </div>
+
+    <div class="actions-panier">
+      <a href="{{ url_for('panier.vider_panier') }}" class="btn btn-secondary">Vider le panier</a>
+      <a href="{{ url_for('stripe.checkout') }}" class="btn btn-success">Payer avec Stripe</a>
+    </div>
+  {% else %}
+    <p class="panier-vide">Votre panier est vide.</p>
+    <a href="{{ url_for('main.home') }}" class="btn">Retour à la boutique</a>
+  {% endif %}
+</section>
+{% endblock %}

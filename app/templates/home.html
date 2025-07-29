@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nay Fashion - Accueil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Nay Fashion</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('main.home') }}">Accueil</a></li>
+            <li><a href="{{ url_for('main.paiement') }}">Paiement</a></li>
+            <li><a href="{{ url_for('auth.login') }}">Connexion</a></li>
+            <li><a href="{{ url_for('auth.register') }}">Inscription</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="content">
+            <h2>Bienvenue chez Nay Fashion</h2>
+            <p>Where trends stay</p>
+            <a href="#nouveautes" class="btn">Voir les nouveautés</a>
+        </div>
+    </section>
+
+    <!-- NOUVEAUTÉS -->
+    <section class="section" id="nouveautes">
+        <h2>Nouveautés</h2>
+        <div class="products">
+            <div class="product">
+                <img src="{{ url_for('static', filename='img/product1.jpg') }}" alt="Produit 1">
+                <h3>Robe Élégante</h3>
+                <p>59,99 €</p>
+                <button>Ajouter au panier</button>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='img/product2.jpg') }}" alt="Produit 2">
+                <h3>Veste Classique</h3>
+                <p>79,99 €</p>
+                <button>Ajouter au panier</button>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='img/product3.jpg') }}" alt="Produit 3">
+                <h3>Pantalon Chic</h3>
+                <p>49,99 €</p>
+                <button>Ajouter au panier</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Nay Fashion. Tous droits réservés.</p>
+        <p><a href="{{ url_for('main.home') }}">Retour en haut</a></p>
+    </footer>
+
+    <script>
+        // Animation au scroll pour révéler les sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

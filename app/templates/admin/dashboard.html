@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Tableau de bord</title>
+</head>
+<body>
+    <h1>Tableau de bord de l'administrateur</h1>
+    <nav>
+        <a href="{{ url_for('admin.utilisateurs') }}">Utilisateurs</a> |
+        <a href="{{ url_for('admin.produits') }}">Produits</a>
+    </nav>
+</body>
+</html>

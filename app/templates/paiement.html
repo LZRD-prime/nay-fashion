@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Paiement | Nay Fashion{% endblock %}
+
+{% block content %}
+<h2>Paiement</h2>
+<form action="{{ url_for('stripe_bp.create_checkout_session') }}" method="POST">
+    <button type="submit" class="btn btn-primary">Payer avec Stripe</button>
+</form>
+{% endblock %}

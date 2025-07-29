@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Paiement | Nay Fashion{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">Paiement sécurisé</h2>
+  <form action="/create-checkout-session" method="POST">
+    <div class="text-center">
+      <button type="submit" class="btn btn-dark btn-lg">Payer avec Stripe</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

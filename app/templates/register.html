@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('main.home') }}">Accueil</a>
+        <a href="{{ url_for('main.paiement') }}">Paiement</a>
+        <a href="{{ url_for('auth.login') }}">Connexion</a>
+        <a href="{{ url_for('auth.register') }}">Inscription</a>
+    </nav>
+
+    <h1>Créer un compte</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <label for="username">{{ form.username.label }}</label>
+        {{ form.username(size=32) }}<br>
+
+        <label for="email">{{ form.email.label }}</label>
+        {{ form.email(size=32) }}<br>
+
+        <label for="password">{{ form.password.label }}</label>
+        {{ form.password(size=32) }}<br>
+
+        <label for="confirm_password">{{ form.confirm_password.label }}</label>
+        {{ form.confirm_password(size=32) }}<br>
+
+        {{ form.submit() }}
+    </form>
+
+    <p>Déjà inscrit ? <a href="{{ url_for('auth.login') }}">Se connecter</a></p>
+</body>
+</html>

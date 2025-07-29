@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: nay-fashion
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn wsgi:app"
+    envVars:
+      - key: STRIPE_SECRET_KEY
+        value: sk_test_51RoB7TRE6Dve84paxyebCYd5Pjqrf5EwElzmxCwAaj8D7RcwCyNmuNg1pEDIH6dXPJDFuCToAjfjOHSax9hwazan00U4pImIoT
+      - key: FLASK_ENV
+        value: production
